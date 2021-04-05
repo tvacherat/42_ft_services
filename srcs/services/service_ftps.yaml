@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ftps-service
+  annotations:
+    metallb.universe.tf/allow-shared-ip: shared
+spec:
+  selector:
+    app: ftps
+  ports:
+    - name: ftps-port
+      protocol: TCP
+      port: 21
+      targetPort: 21
+    - name: pasv-port-min
+      protocol: TCP
+      port: 21020
+      targetPort: 21020
+    - name: pasv-port-mid
+      protocol: TCP
+      port: 21021
+      targetPort: 21021
+    - name: pasv-port-max
+      protocol: TCP
+      port: 21022
+      targetPort: 21022
+  type: LoadBalancer

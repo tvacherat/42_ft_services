@@ -1,0 +1,5 @@
+See:
+https://kubernetes.io/fr/docs/concepts/services-networking/service/
+
+For ip sharing:
+https://asergo.com/knowledge-base/kubernetes/private-managed-cluster/load-balancer.html

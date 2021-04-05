@@ -1,0 +1,7 @@
+USE 'nc -zv 172.17.0.3 21' for testing if the vsftp server is up and running. 
+USE 'nc 172.17.0.3 21' to go in.
+
+You can use ftp as well
+
+Username:ftp_admin
+password:password

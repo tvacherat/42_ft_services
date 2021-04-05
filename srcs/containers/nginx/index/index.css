@@ -1,0 +1,26 @@
+h1
+{
+	color: white;
+	text-align: center;
+	font-family: impact;
+	text-decoration: overline;
+	font-size: 4em;
+	
+}
+body
+{
+	margin:0;
+ 	padding:0;
+ 	background: url(background.jpg) no-repeat center fixed; 
+ 	-webkit-background-size: cover; 
+ 	background-size: cover;
+}
+
+p
+{
+	color: white;
+	font-family: arial black; 
+	font-size: 2em ;
+	text-align: center;
+	background-color: black;
+}

@@ -1,0 +1,5 @@
+See:
+https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+https://kubernetes.io/fr/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/

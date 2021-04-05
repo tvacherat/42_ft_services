@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ftps-deployment
+  labels:
+    app: ftps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ftps
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: ftps
+    spec:
+      containers:
+      - name: ftps
+        image: ftps_img
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 21
+          name: ftps-port
+        - containerPort: 21020
+          name: pasv-port-min
+        - containerPort: 21021
+          name: pasv-port-mid
+        - containerPort: 21022
+          name: pasv-port-max
+        livenessProbe:
+          exec:
+            command:
+              - /bin/sh
+              - -c
+              - 'pgrep vsftpd && pgrep telegraf'
+          periodSeconds: 10
+          initialDelaySeconds: 30

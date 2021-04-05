@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+      - name: wordpress
+        image: wordpress_img
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5050
+          name: wordpress-port
+        env:
+          - name: DB_NAME
+            value: wordpress
+          - name: DB_USER
+            value: wp_admin
+          - name: DB_PASSWORD
+            value: "password"
+          - name: DB_HOST
+            value: mysql-service
+        livenessProbe:
+          exec:
+            command:
+              - /bin/sh
+              - -c
+              - 'pgrep nginx && pgrep telegraf && pgrep php-fpm'
+          periodSeconds: 10
+          initialDelaySeconds: 30
